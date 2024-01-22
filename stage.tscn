@@ -411,8 +411,10 @@ layer_0/tile_data = PackedInt32Array(0, 2, 0, 70, 2, 65536, 71, 10, 0, 72, 10, 0
 [node name="TileMap2" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_0y84n")
 format = 2
-layer_0/tile_data = PackedInt32Array(1507336, 2, 3, 1966091, 2, 3, 1966089, 2, 3, 1835016, 2, 3)
+layer_0/tile_data = PackedInt32Array(1507336, 2, 3, 1966091, 2, 3, 1966089, 2, 3, 1835016, 2, 3, 1769484, 786434, 6)
 script = ExtResource("2_4txte")
+
+[node name="Timer" type="Timer" parent="TileMap2"]
 
 [node name="Coins" type="Node2D" parent="."]
 
