@@ -33,9 +33,18 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var cell_loc = local_to_map(player.position)
+	clean_at_point(player, 1)
 	
-	set_cell(0, cell_loc, 2, cell_map['safe'])
+func clean_at_point(object, radius):
+	var cell_loc = local_to_map(object.position)	
+	for dist in range(radius):
+		if dist == 0:
+			set_cell(0, cell_loc, 2, cell_map['safe'])
+		else:
+			set_cell(0, Vector2i(cell_loc.x, cell_loc.y + dist), 2, cell_map['safe'])
+			set_cell(0, Vector2i(cell_loc.x, cell_loc.y - dist), 2, cell_map['safe'])
+			set_cell(0, Vector2i(cell_loc.x + dist, cell_loc.y), 2, cell_map['safe'])
+			set_cell(0, Vector2i(cell_loc.x - dist, cell_loc.y), 2, cell_map['safe'])
 	
 func propogate_virus():
 	var overlay_rect = get_used_rect()

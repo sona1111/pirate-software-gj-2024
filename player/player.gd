@@ -195,7 +195,7 @@ func _shot_bullet() -> void:
 	bullet.position = self.position + bullet_shoot.position * Vector2(speed_scale, 1.0)
 	get_parent().add_child(bullet)
 
-	bullet.linear_velocity = Vector2(400.0 * speed_scale, -40)
+	bullet.linear_velocity = Vector2(400.0 * speed_scale,-400.0 * speed_scale)
 
 	sprite_smoke.restart()
 	sound_shoot.play()
